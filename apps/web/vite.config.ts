@@ -53,7 +53,31 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA({
-        selfDestroying: true,
+        registerType: "autoUpdate",
+        includeAssets: ["favicon.ico", "apple-touch-icon.png"],
+        manifest: {
+          id: "/",
+          name: "IoT4Ag",
+          short_name: "IoT4Ag",
+          description: "IoT4Ag Meshtastic Web Client",
+          start_url: "/",
+          scope: "/",
+          display: "standalone",
+          theme_color: "#67ea94",
+          background_color: "#67ea94",
+          icons: [
+            {
+              src: "/pwa-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+            },
+            {
+              src: "/pwa-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+            },
+          ],
+        },
       }),
     ],
     optimizeDeps: {
